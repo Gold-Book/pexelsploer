@@ -18,6 +18,6 @@ class PicturesAdapter(private val viewModel: TopViewModel) :
     }
 
     override fun onBindViewHolder(holder: PicturesViewHolder, position: Int) {
-
+        viewModel.getPhoto(position)?.let { holder.bindViewHolder(it, viewModel) }
     }
 }

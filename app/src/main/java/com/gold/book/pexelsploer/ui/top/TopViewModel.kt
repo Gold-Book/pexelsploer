@@ -7,7 +7,6 @@ import com.gold.book.pexelsploer.data.entities.PhotoEntity
 import com.gold.book.pexelsploer.data.repository.PicturesRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class TopViewModel : ViewModel() {
 
@@ -16,6 +15,8 @@ class TopViewModel : ViewModel() {
     val searchTextLiveData = MutableLiveData("")
 
     val isLoadingLiveData = MutableLiveData(false)
+
+    fun getPhoto(position: Int) = photosLiveData.value?.get(position)
 
     fun onClickSearch() {
         if (isLoadingLiveData.value == true) return
@@ -28,7 +29,7 @@ class TopViewModel : ViewModel() {
 
             runCatching {
                 val response = PicturesRepository().search(searchText)
-                Timber.tag("test").d(response.toString())
+                photosLiveData.postValue(response.photos)
             }
 
             isLoadingLiveData.postValue(false)

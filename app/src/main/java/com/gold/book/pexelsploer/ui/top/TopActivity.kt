@@ -1,6 +1,8 @@
 package com.gold.book.pexelsploer.ui.top
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -23,5 +25,18 @@ class TopActivity : AppCompatActivity() {
 
         binding.toolbarView.setLifeCycleOwner(this)
         binding.pictures.adapter = PicturesAdapter(topViewModel)
+
+        topViewModel.photosLiveData.observe(this) {
+            if (it.isEmpty()) {
+                binding.emptyPictures.visibility = VISIBLE
+                binding.pictures.visibility = GONE
+                return@observe
+            }
+
+            binding.emptyPictures.visibility = GONE
+            binding.pictures.visibility = VISIBLE
+
+            (binding.pictures.adapter as PicturesAdapter).submitList(it)
+        }
     }
 }

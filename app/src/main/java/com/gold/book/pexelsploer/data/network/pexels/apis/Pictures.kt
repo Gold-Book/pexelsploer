@@ -1,12 +1,13 @@
 package com.gold.book.pexelsploer.data.network.pexels.apis
 
+import com.gold.book.pexelsploer.data.network.pexels.entities.SearchResponseEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface Search {
+interface Pictures {
 
     @GET("search")
-    suspend fun find(
+    suspend fun search(
         @Query("query") query: String
-    )
+    ): SearchResponseEntity
 }

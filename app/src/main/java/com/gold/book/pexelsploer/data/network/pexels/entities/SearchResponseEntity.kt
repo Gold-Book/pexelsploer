@@ -5,7 +5,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class SearchResponseEntity(
-    @Json(name = "photos") val photos: PhotoEntity
+    @Json(name = "photos") val photos: List<PhotoEntity>
 )
 
 @JsonClass(generateAdapter = true)

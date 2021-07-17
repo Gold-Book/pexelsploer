@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">pexelsploer</string>
+
+    <string name="toolbar_empty_title">Pexelsで\n写真を探してみよう！</string>
 </resources>

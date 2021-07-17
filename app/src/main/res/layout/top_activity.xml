@@ -56,7 +56,7 @@
                 android:textSize="@dimen/text_size_medium" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.gold.book.pexelsploer.ui.top.views.EvenlyDivideRecyclerView
             android:id="@+id/pictures"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

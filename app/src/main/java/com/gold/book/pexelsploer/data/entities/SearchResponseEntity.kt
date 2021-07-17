@@ -1,4 +1,4 @@
-package com.gold.book.pexelsploer.data.network.pexels.entities
+package com.gold.book.pexelsploer.data.entities
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -10,6 +10,7 @@ data class SearchResponseEntity(
 
 @JsonClass(generateAdapter = true)
 data class PhotoEntity(
+    @Json(name = "id") val id: Long,
     @Json(name = "src") val src: SrcEntity
 )
 

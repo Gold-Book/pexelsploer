@@ -1,6 +1,6 @@
 package com.gold.book.pexelsploer.data.network.pexels.apis
 
-import com.gold.book.pexelsploer.data.network.pexels.entities.SearchResponseEntity
+import com.gold.book.pexelsploer.data.entities.SearchResponseEntity
 import retrofit2.http.GET
 import retrofit2.http.Query
 

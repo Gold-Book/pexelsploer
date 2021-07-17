@@ -21,8 +21,7 @@ class TopActivity : AppCompatActivity() {
         binding.viewModel = topViewModel
         binding.lifecycleOwner = this
 
-        with(binding.toolbarView) {
-            setLifeCycleOwner(this@TopActivity)
-        }
+        binding.toolbarView.setLifeCycleOwner(this)
+        binding.pictures.adapter = PicturesAdapter(topViewModel)
     }
 }

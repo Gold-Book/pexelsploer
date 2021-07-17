@@ -20,5 +20,9 @@ class TopActivity : AppCompatActivity() {
 
         binding.viewModel = topViewModel
         binding.lifecycleOwner = this
+
+        with(binding.toolbarView) {
+            setLifeCycleOwner(this@TopActivity)
+        }
     }
 }

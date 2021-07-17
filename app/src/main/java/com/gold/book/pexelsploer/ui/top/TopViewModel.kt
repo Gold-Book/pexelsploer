@@ -2,6 +2,7 @@ package com.gold.book.pexelsploer.ui.top
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import timber.log.Timber
 
 class TopViewModel : ViewModel() {
 
@@ -10,6 +11,6 @@ class TopViewModel : ViewModel() {
     val isLoadingLiveData = MutableLiveData(false)
 
     fun onClickSearch() {
-
+        Timber.tag("test").d(searchTextLiveData.value)
     }
 }

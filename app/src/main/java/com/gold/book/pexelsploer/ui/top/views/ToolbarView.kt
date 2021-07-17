@@ -33,18 +33,14 @@ class ToolbarView @JvmOverloads constructor(
     fun setTopViewModel(viewModel: TopViewModel) {
         binding.viewModel = viewModel
 
-        binding.searchBox.run {
-            onSubmit {
-                hideSoftKeyboard(binding.toolbarViewRoot)
-                viewModel.onClickSearch()
-            }
+        binding.searchBox.onSubmit {
+            hideSoftKeyboard(binding.toolbarViewRoot)
+            viewModel.onClickSearch()
         }
 
-        binding.searchIcon.run {
-            setOnClickListener {
-                hideSoftKeyboard(binding.toolbarViewRoot)
-                viewModel.onClickSearch()
-            }
+        binding.searchIcon.setOnClickListener {
+            hideSoftKeyboard(binding.toolbarViewRoot)
+            viewModel.onClickSearch()
         }
     }
 }

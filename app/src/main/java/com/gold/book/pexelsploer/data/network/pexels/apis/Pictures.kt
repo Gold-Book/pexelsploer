@@ -8,6 +8,7 @@ interface Pictures {
 
     @GET("search")
     suspend fun search(
-        @Query("query") query: String
+        @Query("query") query: String,
+        @Query("per_page") perPage: Int
     ): SearchResponseEntity
 }

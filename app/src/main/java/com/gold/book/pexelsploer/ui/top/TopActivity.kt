@@ -38,7 +38,7 @@ class TopActivity : AppCompatActivity() {
         return PicturesAdapter(topViewModel, object : OnClickPictureViewListener {
             override fun onClick(photoEntity: PhotoEntity) {
                 val intent = PictureDetailActivity.createStartIntent(
-                    this@TopActivity, photoEntity.src.original, photoEntity.photographer
+                    this@TopActivity, photoEntity.src.portrait, photoEntity.photographer
                 )
 
                 startActivity(intent)

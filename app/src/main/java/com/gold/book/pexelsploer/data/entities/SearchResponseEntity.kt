@@ -17,6 +17,6 @@ data class PhotoEntity(
 
 @JsonClass(generateAdapter = true)
 data class SrcEntity(
-    @Json(name = "original") val original: String,
+    @Json(name = "portrait") val portrait: String,
     @Json(name = "small") val small: String
 )

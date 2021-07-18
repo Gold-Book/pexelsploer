@@ -7,8 +7,14 @@ import com.gold.book.pexelsploer.GlideApp
 object BindingAdapters {
 
     @JvmStatic
-    @BindingAdapter("imageUrl")
-    fun imageUrl(imageView: AppCompatImageView, url: String?) {
+    @BindingAdapter("centerCrop")
+    fun centerCrop(imageView: AppCompatImageView, url: String?) {
         GlideApp.with(imageView.context).load(url).centerCrop().into(imageView)
+    }
+
+    @JvmStatic
+    @BindingAdapter("fitCenter")
+    fun fitCenter(imageView: AppCompatImageView, url: String?) {
+        GlideApp.with(imageView.context).load(url).fitCenter().into(imageView)
     }
 }

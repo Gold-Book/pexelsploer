@@ -7,7 +7,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.gold.book.pexelsploer.R
+import com.gold.book.pexelsploer.data.entities.PhotoEntity
 import com.gold.book.pexelsploer.databinding.TopActivityBinding
+import com.gold.book.pexelsploer.ui.picture_detail.PictureDetailActivity
+import com.gold.book.pexelsploer.ui.top.PicturesAdapter.OnClickPictureViewListener
 
 class TopActivity : AppCompatActivity() {
 
@@ -22,21 +25,36 @@ class TopActivity : AppCompatActivity() {
 
         binding.viewModel = topViewModel
         binding.lifecycleOwner = this
-
         binding.toolbarView.setLifeCycleOwner(this)
-        binding.pictures.adapter = PicturesAdapter(topViewModel)
+
+        binding.pictures.adapter = createAdapter()
 
         topViewModel.photosLiveData.observe(this) {
-            if (it.isEmpty()) {
-                binding.emptyPictures.visibility = VISIBLE
-                binding.pictures.visibility = GONE
-                return@observe
-            }
-
-            binding.emptyPictures.visibility = GONE
-            binding.pictures.visibility = VISIBLE
-
-            (binding.pictures.adapter as PicturesAdapter).submitList(it)
+            if (it.isEmpty()) visibleEmptyPictures() else visiblePictures(it)
         }
+    }
+
+    private fun createAdapter(): PicturesAdapter {
+        return PicturesAdapter(topViewModel, object : OnClickPictureViewListener {
+            override fun onClick(photoEntity: PhotoEntity) {
+                val intent = PictureDetailActivity.createStartIntent(
+                    this@TopActivity, photoEntity.src.original, photoEntity.photographer
+                )
+
+                startActivity(intent)
+            }
+        })
+    }
+
+    private fun visibleEmptyPictures() {
+        binding.emptyPictures.visibility = VISIBLE
+        binding.pictures.visibility = GONE
+    }
+
+    private fun visiblePictures(entities: List<PhotoEntity>) {
+        binding.emptyPictures.visibility = GONE
+        binding.pictures.visibility = VISIBLE
+
+        (binding.pictures.adapter as PicturesAdapter).submitList(entities)
     }
 }

@@ -7,8 +7,14 @@ import com.gold.book.pexelsploer.data.entities.PhotoEntity
 import com.gold.book.pexelsploer.databinding.TopPictureListItemBinding
 import com.gold.book.pexelsploer.ui.top.views.PicturesViewHolder
 
-class PicturesAdapter(private val viewModel: TopViewModel) :
-    ListAdapter<PhotoEntity, PicturesViewHolder>(PicturesDiffCallBack()) {
+class PicturesAdapter(
+    private val viewModel: TopViewModel,
+    private val listener: OnClickPictureViewListener
+) : ListAdapter<PhotoEntity, PicturesViewHolder>(PicturesDiffCallBack()) {
+
+    interface OnClickPictureViewListener {
+        fun onClick(photoEntity: PhotoEntity)
+    }
 
     override fun getItemCount(): Int = viewModel.photosLiveData.value?.size ?: 0
 
@@ -18,6 +24,9 @@ class PicturesAdapter(private val viewModel: TopViewModel) :
     }
 
     override fun onBindViewHolder(holder: PicturesViewHolder, position: Int) {
-        viewModel.getPhoto(position)?.let { holder.bindViewHolder(it, viewModel) }
+        viewModel.getPhoto(position)?.let { entity ->
+            holder.bindViewHolder(entity, viewModel)
+            holder.itemView.setOnClickListener { listener.onClick(entity) }
+        }
     }
 }

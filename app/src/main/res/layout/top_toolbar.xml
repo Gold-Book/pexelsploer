@@ -55,15 +55,15 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/searchButton"
-                android:layout_width="@dimen/top_search_size"
-                android:layout_height="@dimen/top_search_size"
+                android:layout_width="@dimen/top_search_icon_size"
+                android:layout_height="@dimen/top_search_icon_size"
                 android:src="@drawable/ic_search"
                 android:visibility="@{viewModel.isLoadingLiveData ? View.GONE : View.VISIBLE}" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
-                android:layout_width="@dimen/top_search_size"
-                android:layout_height="@dimen/top_search_size"
+                android:layout_width="@dimen/top_search_icon_size"
+                android:layout_height="@dimen/top_search_icon_size"
                 android:visibility="@{viewModel.isLoadingLiveData ? View.VISIBLE : View.GONE}" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.constraintlayout.widget.ConstraintLayout>

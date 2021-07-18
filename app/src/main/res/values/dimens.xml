@@ -9,7 +9,8 @@
     <dimen name="text_size_medium">18sp</dimen>
     <dimen name="text_size_large">22sp</dimen>
 
-    <dimen name="top_search_size">24dp</dimen>
+    <dimen name="top_search_icon_size">24dp</dimen>
+    <dimen name="top_picture_item_size">64dp</dimen>
 
     <dimen name="divider_size">1dp</dimen>
 </resources>

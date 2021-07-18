@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import androidx.recyclerview.widget.RecyclerView
 import com.gold.book.pexelsploer.R
 import kotlin.math.ceil
@@ -15,7 +16,20 @@ class EvenlyDivideRecyclerView @JvmOverloads constructor(
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
     init {
-        addItemDecoration(object : ItemDecoration() {
+        this.viewTreeObserver.addOnGlobalLayoutListener(object : OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                val root = this@EvenlyDivideRecyclerView
+
+                if (root.width != 0) {
+                    addItemDecoration(createItemDecoration())
+                    root.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                }
+            }
+        })
+    }
+
+    private fun createItemDecoration(): ItemDecoration {
+        return object : ItemDecoration() {
             override fun getItemOffsets(out: Rect, view: View, parent: RecyclerView, state: State) {
                 val position = parent.getChildLayoutPosition(view)
                 val spanCount = resources.getInteger(R.integer.top_evenly_divide_span_count)
@@ -35,7 +49,7 @@ class EvenlyDivideRecyclerView @JvmOverloads constructor(
                     else -> out.set(space, 0, 0, space)
                 }
             }
-        })
+        }
     }
 
     private fun isFirstPosition(position: Int, spanCount: Int) = position.inc() % spanCount == 1

@@ -11,6 +11,7 @@ data class SearchResponseEntity(
 @JsonClass(generateAdapter = true)
 data class PhotoEntity(
     @Json(name = "id") val id: Long,
+    @Json(name = "photographer") val photographer: String,
     @Json(name = "src") val src: SrcEntity
 )
 

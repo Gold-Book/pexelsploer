@@ -7,17 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.gold.book.pexelsploer.R
 import com.gold.book.pexelsploer.databinding.PictureDetailActivityBinding
+import com.gold.book.pexelsploer.ui.utils.FullScreenUtils.hideSystemUi
 
 class PictureDetailActivity : AppCompatActivity() {
 
     companion object {
         private const val EXTRA_URL_KEY = " EXTRA_URL_KEY"
-        private const val EXTRA_PHOTOGRAPHER_KEY = " photographer"
 
-        fun createStartIntent(context: Context, url: String, photographer: String) =
+        fun createStartIntent(context: Context, url: String) =
             Intent(context, PictureDetailActivity::class.java).apply {
                 putExtra(EXTRA_URL_KEY, url)
-                putExtra(EXTRA_PHOTOGRAPHER_KEY, photographer)
             }
     }
 
@@ -27,8 +26,8 @@ class PictureDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.picture_detail_activity)
-
         binding.imageUrl = intent.getStringExtra(EXTRA_URL_KEY)
-        binding.photographer = intent.getStringExtra(EXTRA_PHOTOGRAPHER_KEY)
+
+        hideSystemUi(window)
     }
 }

@@ -12,7 +12,9 @@ import kotlin.math.floor
 
 
 class EvenlyDivideRecyclerView @JvmOverloads constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
     init {
@@ -41,11 +43,13 @@ class EvenlyDivideRecyclerView @JvmOverloads constructor(
                         val margin = (floor((parent.width % spanCount) / 2.0)).toInt()
                         out.set(space + margin, 0, 0, space)
                     }
+
                     isLastPosition(position, spanCount) -> {
                         // 余剰を右に寄せるので切り上げ
                         val margin = ceil((parent.width % spanCount) / 2.0).toInt()
                         out.set(space, 0, margin, space)
                     }
+
                     else -> out.set(space, 0, 0, space)
                 }
             }

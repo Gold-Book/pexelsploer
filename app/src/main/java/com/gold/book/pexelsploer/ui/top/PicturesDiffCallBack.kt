@@ -11,7 +11,5 @@ class PicturesDiffCallBack : DiffUtil.ItemCallback<PhotoEntity>() {
 
     override fun areContentsTheSame(oldItem: PhotoEntity, newItem: PhotoEntity): Boolean {
         return oldItem.id == newItem.id
-
-
     }
 }

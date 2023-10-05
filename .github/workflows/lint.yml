@@ -19,6 +19,11 @@ jobs:
           chmod a+x ktlint
           sudo mv ktlint /usr/local/bin/
 
+      - name: Set up reviewdog
+        uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+
       - name: Run ktlint and report with reviewdog
         run: |
           ktlint --reporter=checkstyle,output=ktlint-report.xml || echo "Ktlint check failed."

@@ -12,4 +12,12 @@ class PicturesRepository {
     suspend fun search(keyword: String): SearchResponseEntity {
         return pictures().search(keyword, PICTURE_PER_PAGE)
     }
+
+    suspend fun SearchFiler() {
+        println("test")
+    }
+
+    suspend fun SearchFiler2() {
+        println("test")
+    }
 }

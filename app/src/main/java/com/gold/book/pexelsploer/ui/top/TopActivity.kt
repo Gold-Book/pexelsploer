@@ -35,15 +35,18 @@ class TopActivity : AppCompatActivity() {
     }
 
     private fun createAdapter(): PicturesAdapter {
-        return PicturesAdapter(topViewModel, object : OnClickPictureViewListener {
-            override fun onClick(photoEntity: PhotoEntity) {
-                val intent = PictureDetailActivity.createStartIntent(
-                    this@TopActivity, photoEntity.src.portrait
-                )
+        return PicturesAdapter(topViewModel,
+            object : OnClickPictureViewListener {
 
-                startActivity(intent)
-            }
-        })
+                override fun onClick(photoEntity: PhotoEntity) {
+                    val intent = PictureDetailActivity.createStartIntent(
+                        this@TopActivity,
+                        photoEntity.src.portrait
+                    )
+
+                    startActivity(intent)
+                }
+            })
     }
 
     private fun visibleEmptyPictures() {

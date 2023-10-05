@@ -24,8 +24,7 @@ jobs:
 
       - name: Run ktlint and report with reviewdog
         run: |
-          ktlint --reporter=checkstyle,output=ktlint-report.xml || exit 1
-        continue-on-error: true
+          ktlint --reporter=checkstyle,output=ktlint-report.xml || echo "style error"
 
       - name: Run reviewdog
         run: |

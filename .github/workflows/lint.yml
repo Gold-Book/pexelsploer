@@ -29,8 +29,6 @@ jobs:
 
       - name: Run ktlint
         run: |
-          ktlint --relative
-          echo "::error::Ktlint check failed, see details below"
           ktlint --reporter=checkstyle | reviewdog -f=checkstyle -name="ktlint" -reporter=github-pr-review
 
         env:

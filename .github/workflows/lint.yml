@@ -28,6 +28,12 @@ jobs:
         with:
           reviewdog_version: latest
 
+      - name: Save ktlint-report.xml as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ktlint-report
+          path: ktlint-report.xml
+
       - name: Run reviewdog
         run: |
           reviewdog -reporter=github-pr-review -f=checkstyle -name="ktlint" < ktlint-report.xml

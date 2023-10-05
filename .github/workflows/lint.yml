@@ -19,7 +19,7 @@ jobs:
           chmod a+x ktlint
           sudo mv ktlint /usr/local/bin/
 
-      - name: Run ktlint and report with reviewdog
+      - name: Run ktlint
         run: |
           ktlint --reporter=checkstyle,output=ktlint-report.xml || echo "style error"
 
@@ -27,9 +27,9 @@ jobs:
         with:
           reviewdog_version: latest
 
-
       - name: Run reviewdog
         run: |
-          reviewdog -reporter=github-pr-review -f=checkstyle -name="ktlint" < ktlint-report.xml
+          cat ktlint-report.xml |
+          reviewdog -reporter=github-pr-review -f=checkstyle -name="ktlint"
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}

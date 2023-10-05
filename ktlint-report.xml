@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="8.0">
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/androidTest/java/com/gold/book/pexelsploer/ExampleInstrumentedTest.kt">
+        <error line="1" column="1" severity="error" message="File must end with a newline (\n)" source="final-newline" />
+        <error line="3" column="1" severity="error" message="Imports must be ordered in lexicographic order without any empty lines in-between with &quot;java&quot;, &quot;javax&quot;, &quot;kotlin&quot; and aliases in the end" source="import-ordering" />
+        <error line="9" column="1" severity="error" message="Wildcard import (cannot be auto-corrected)" source="no-wildcard-imports" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/main/java/com/gold/book/pexelsploer/AppGlideModule.kt">
+        <error line="7" column="21" severity="error" message="Missing spacing before &quot;:&quot;" source="colon-spacing" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/main/java/com/gold/book/pexelsploer/data/network/pexels/HttpClient.kt">
+        <error line="1" column="1" severity="error" message="File must end with a newline (\n)" source="final-newline" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/main/java/com/gold/book/pexelsploer/ui/top/PicturesDiffUtil.kt">
+        <error line="1" column="1" severity="error" message="class PicturesDiffCallBack should be declared in a file named PicturesDiffCallBack.kt (cannot be auto-corrected)" source="filename" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/main/java/com/gold/book/pexelsploer/ui/top/TopActivity.kt">
+        <error line="38" column="32" severity="error" message="Missing newline after &quot;(&quot;" source="indent" />
+        <error line="38" column="45" severity="error" message="Missing newline after &quot;,&quot;" source="indent" />
+        <error line="46" column="9" severity="error" message="Missing newline before &quot;)&quot;" source="indent" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/main/java/com/gold/book/pexelsploer/ui/top/views/EvenlyDivideRecyclerView.kt">
+        <error line="13" column="1" severity="error" message="Needless blank line(s)" source="no-consecutive-blank-lines" />
+        <error line="15" column="23" severity="error" message="Parameter should be on a separate line (unless all parameters can fit a single line)" source="parameter-list-wrapping" />
+        <error line="15" column="52" severity="error" message="Parameter should be on a separate line (unless all parameters can fit a single line)" source="parameter-list-wrapping" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/main/java/com/gold/book/pexelsploer/ui/top/views/ToolbarView.kt">
+        <error line="17" column="23" severity="error" message="Parameter should be on a separate line (unless all parameters can fit a single line)" source="parameter-list-wrapping" />
+        <error line="17" column="52" severity="error" message="Parameter should be on a separate line (unless all parameters can fit a single line)" source="parameter-list-wrapping" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/main/java/com/gold/book/pexelsploer/ui/utils/EditTextUtils.kt">
+        <error line="4" column="1" severity="error" message="Unused import" source="no-unused-imports" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/main/java/com/gold/book/pexelsploer/ui/utils/FullScreenUtils.kt">
+        <error line="14" column="52" severity="error" message="Missing newline after &quot;(&quot;" source="indent" />
+        <error line="15" column="1" severity="error" message="Unexpected indentation (20) (should be 16)" source="indent" />
+        <error line="16" column="1" severity="error" message="Unexpected indentation (20) (should be 16)" source="indent" />
+        <error line="17" column="1" severity="error" message="Unexpected indentation (20) (should be 16)" source="indent" />
+        <error line="18" column="1" severity="error" message="Unexpected indentation (20) (should be 16)" source="indent" />
+        <error line="19" column="1" severity="error" message="Unexpected indentation (20) (should be 16)" source="indent" />
+        <error line="20" column="1" severity="error" message="Unexpected indentation (20) (should be 16)" source="indent" />
+        <error line="21" column="1" severity="error" message="Unexpected indentation (20) (should be 16)" source="indent" />
+        <error line="22" column="1" severity="error" message="Unexpected indentation (20) (should be 16)" source="indent" />
+        <error line="22" column="53" severity="error" message="Missing newline before &quot;)&quot;" source="indent" />
+    </file>
+    <file name="/Users/main/AndroidStudioProjects/pexelsploer/app/src/test/java/com/gold/book/pexelsploer/ExampleUnitTest.kt">
+        <error line="1" column="1" severity="error" message="File must end with a newline (\n)" source="final-newline" />
+        <error line="3" column="1" severity="error" message="Imports must be ordered in lexicographic order without any empty lines in-between with &quot;java&quot;, &quot;javax&quot;, &quot;kotlin&quot; and aliases in the end" source="import-ordering" />
+        <error line="5" column="1" severity="error" message="Wildcard import (cannot be auto-corrected)" source="no-wildcard-imports" />
+    </file>
+</checkstyle>

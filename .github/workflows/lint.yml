@@ -23,13 +23,13 @@ jobs:
         run: |
           ktlint --reporter=checkstyle,output=ktlint-report.xml || echo "style error"
 
-      - uses: reviewdog/action-setup@v1
+      - name: Set up reviewdog
+        uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest
 
       - name: Run reviewdog
         run: |
-          cat ktlint-report.xml |
-          reviewdog -reporter=github-pr-review -f=checkstyle -name="ktlint"
+          reviewdog -reporter=github-pr-review -f=checkstyle -name="ktlint" < ktlint-report.xml
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}

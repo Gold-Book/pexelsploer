@@ -28,6 +28,9 @@ jobs:
         with:
           reviewdog_version: latest
 
+      - name: Enable debug logging
+        run: echo "::set-env name=ACTIONS_STEP_DEBUG::true"
+
       - name: Save ktlint-report.xml as artifact
         uses: actions/upload-artifact@v2
         with:

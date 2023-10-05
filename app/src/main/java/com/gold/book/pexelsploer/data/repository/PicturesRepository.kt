@@ -7,6 +7,7 @@ class PicturesRepository {
 
     companion object {
         private const val PICTURE_PER_PAGE = 20
+        
     }
 
     suspend fun search(keyword: String): SearchResponseEntity {

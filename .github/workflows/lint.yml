@@ -5,11 +5,6 @@ on:
     branches:
       - 'issue-**'
 
-permissions:
-  contents: read
-  pull-requests: write
-  checks: write
-
 jobs:
   ktlint:
     runs-on: ubuntu-latest
@@ -40,6 +35,10 @@ jobs:
           path: ktlint-report.xml
 
       - name: Run reviewdog
+        permissions:
+          contents: read
+          checks: write
+          pull-requests: write
         run: |
           reviewdog -reporter=github-pr-review -f=checkstyle -name="ktlint" < ktlint-report.xml
         env:

@@ -19,11 +19,13 @@ jobs:
           chmod a+x ktlint
           sudo mv ktlint /usr/local/bin/
 
-      - name: Set up reviewdog
-        uses: reviewdog/setup-reviewdog@v1
+      - uses: reviewdog/action-setup@v1
+      - run: reviewdog -version
 
-      - name: Check reviewdog version
-        run: reviewdog --version
+      - name: Set up reviewdog
+        uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
 
       - name: Run ktlint and report with reviewdog
         run: |

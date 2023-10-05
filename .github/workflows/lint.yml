@@ -5,6 +5,11 @@ on:
     branches:
       - 'issue-**'
 
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
 jobs:
   ktlint:
     runs-on: ubuntu-latest
@@ -37,3 +42,5 @@ jobs:
       - name: Run reviewdog
         run: |
           reviewdog -reporter=github-pr-review -f=checkstyle -name="ktlint" < ktlint-report.xml
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -20,9 +20,10 @@ jobs:
           sudo mv ktlint /usr/local/bin/
 
       - name: Set up reviewdog
-        uses: reviewdog/action-setup@v1
-        with:
-          reviewdog_version: latest
+        uses: reviewdog/setup-reviewdog@v1
+
+      - name: Check reviewdog version
+        run: reviewdog --version
 
       - name: Run ktlint and report with reviewdog
         run: |

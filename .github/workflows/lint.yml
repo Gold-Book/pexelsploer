@@ -19,18 +19,18 @@ jobs:
           chmod a+x ktlint
           sudo mv ktlint /usr/local/bin/
 
-      - uses: reviewdog/action-setup@v1
-      - run: reviewdog -list
-
       - name: Run ktlint and report with reviewdog
         run: |
           ktlint --reporter=checkstyle,output=ktlint-report.xml || echo "style error"
 
-      - name: Enable reviewdog debug log
-        run: echo "::set-env name=REVIEWDOG_DEBUG::true"
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+
 
       - name: Run reviewdog
         run: |
+          reviewdog -f=checkstyle -name="textlint" -reporter=github-check -level=info
           reviewdog -reporter=github-pr-review -f=checkstyle -name="ktlint" < ktlint-report.xml
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}

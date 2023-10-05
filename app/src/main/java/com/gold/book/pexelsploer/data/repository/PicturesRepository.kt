@@ -16,4 +16,8 @@ class PicturesRepository {
     suspend fun SearchFiler() {
         println("test")
     }
+
+    suspend fun SearchFiler2() {
+        println("test")
+    }
 }

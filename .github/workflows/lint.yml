@@ -22,11 +22,6 @@ jobs:
       - uses: reviewdog/action-setup@v1
       - run: reviewdog -version
 
-      - name: Set up reviewdog
-        uses: reviewdog/action-setup@v1
-        with:
-          reviewdog_version: latest
-
       - name: Run ktlint and report with reviewdog
         run: |
           ktlint --reporter=checkstyle,output=ktlint-report.xml || echo "Ktlint check failed."

@@ -5,6 +5,9 @@ on:
     branches:
       - 'issue-**'
 
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
 jobs:
   ktlint:
     runs-on: ubuntu-latest

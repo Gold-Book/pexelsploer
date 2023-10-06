@@ -26,8 +26,8 @@ jobs:
       - name: Bundle setup
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
-          bundler: default
+          ruby-version: 3.2
+          bundler-cache: true
 
       - name: Run ktlintCheck
         run: ./gradlew ktlintCheck

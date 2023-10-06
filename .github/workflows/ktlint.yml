@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: cache bundle
         uses: actions/cache@v2
@@ -36,7 +36,6 @@ jobs:
         with:
           ruby-version: 2.7.2
           bundler-cache: true
-          bundler-cache-path: vendor/bundle
 
       - name: Run ktlintCheck
         run: ./gradlew ktlintCheck

@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - 'issue-**'
-      - 'feature:issue-**'
-      - 'feature/issue-**'
-      - 'feature/issue*'
 jobs:
   cache:
     runs-on: ubuntu-latest

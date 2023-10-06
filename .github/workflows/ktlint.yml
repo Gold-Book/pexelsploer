@@ -1,0 +1,32 @@
+name: ktlint
+
+on:
+  pull_request:
+    branches:
+      - 'issue-**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+
+      - name: Install Danger
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Run ktlintCheck
+        run: ./gradlew ktlintCheck
+
+      - name: Run Danger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx danger

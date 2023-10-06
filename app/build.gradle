@@ -2,6 +2,20 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id("org.jlleitschuh.gradle.ktlint") version "11.6.0"
+}
+
+ktlint {
+//    version = '1.0.0'
+    android = true
+
+    reporters { reporter "checkstyle" }
+
+    ignoreFailures = true
+
+    filter {
+        exclude("**/generated/**")
+    }
 }
 
 android {

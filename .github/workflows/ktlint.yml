@@ -21,6 +21,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
+      - name: Bundle cache
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true
+
       - name: Bundle install
         run: bundle install --path vendor/bundle --jobs 4 --retry 3
 

@@ -29,11 +29,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file("local.properties").newDataInputStream())
-
         buildConfigField "String", "PEXELS_V1_URL", "\"https://api.pexels.com/v1/\""
-        buildConfigField "String", "PEXELS_API_KEY", "\"${properties.getProperty('pexels_api_key')}\""
+        buildConfigField "String", "PEXELS_API_KEY", "test"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

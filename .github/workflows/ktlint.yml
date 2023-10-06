@@ -3,7 +3,7 @@ name: ktlint
 on:
   pull_request:
     branches:
-      - '*issue*'
+      - 'issue-**'
 
 jobs:
   cache:
@@ -22,7 +22,6 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
       - name: Bundle setup
         uses: ruby/setup-ruby@v1
         with:

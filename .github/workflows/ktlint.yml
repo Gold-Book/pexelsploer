@@ -3,7 +3,7 @@ name: ktlint
 on:
   pull_request:
     branches:
-      - 'issue-**'
+      - 'feature/issue-**'
 
 jobs:
   cache:

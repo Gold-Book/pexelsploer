@@ -6,7 +6,7 @@ plugins {
 }
 
 ktlint {
-//    version = '1.0.0'
+
     android = true
 
     reporters { reporter "checkstyle" }

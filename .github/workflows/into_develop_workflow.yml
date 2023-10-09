@@ -19,7 +19,7 @@ jobs:
           path: ~/.cache/ktlint
           key: ktlint-0.42.1-${{ runner.os }}-main
 
-      - name: install Ktlint
+      - name: install ktlint
         run: |
           if ! command -v ktlint &> /dev/null; then
             curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.42.1/ktlint
@@ -28,7 +28,12 @@ jobs:
           sudo mv ktlint /usr/local/bin/
           ktlint --version
 
-      - name: Run Ktlint with EditorConfig
+      - name: run Ktlint
         continue-on-error: true
         run: |
           ktlint --relative . --reporter=plain --verbose
+
+      - name: run Danger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec danger

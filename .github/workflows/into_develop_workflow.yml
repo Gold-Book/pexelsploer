@@ -1,7 +1,7 @@
 name: into_develop_workflow
 
 on:
-  push:
+  pull_request:
     branches:
       - develop
 

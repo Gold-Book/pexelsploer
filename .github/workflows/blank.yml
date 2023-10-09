@@ -1,0 +1,34 @@
+name: into_develop_workflow
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: cache ktlint
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/ktlint
+          key: ktlint-0.42.1-${{ runner.os }}-main
+
+      - name: install Ktlint
+        run: |
+          if ! command -v ktlint &> /dev/null; then
+            curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.42.1/ktlint
+          fi
+          chmod +x ktlint
+          sudo mv ktlint /usr/local/bin/
+          ktlint --version
+
+      - name: Run Ktlint with EditorConfig
+        continue-on-error: true
+        run: |
+          ktlint --relative . --reporter=plain --verbose

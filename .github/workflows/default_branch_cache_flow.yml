@@ -1,6 +1,8 @@
 name: into_develop_workflow
 
 on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review ]
   push:
     branches:
       - develop
@@ -16,15 +18,5 @@ jobs:
       - name: Bundle setup
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 2.7.2
           bundler-cache: true
-
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-

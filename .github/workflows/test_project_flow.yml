@@ -3,8 +3,9 @@ name: test_issue_flow
 on:
   project_card:
     - created
-    - updated
     - moved
+    - converted
+    - edited
     - deleted
 
 jobs:

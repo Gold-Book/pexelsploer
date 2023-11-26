@@ -1,0 +1,16 @@
+name: test_issue_flow
+
+on:
+  project_card:
+    - created
+    - updated
+    - moved
+    - deleted
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: echo
+        run: echo "test"

@@ -1,4 +1,4 @@
-name: test_issue_flow
+name: test_project_flow
 
 on:
   project_card:

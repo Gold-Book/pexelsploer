@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
+about: これはサンプル説明です
 title: ''
 labels: 'bug'
 assignees: ''
